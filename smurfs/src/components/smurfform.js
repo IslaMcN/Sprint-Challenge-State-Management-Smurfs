@@ -1,57 +1,50 @@
 //create the form for user to create new smurf 
-
-import React, {useState} from 'react';
-import Axios from 'axios';
+import {useForm} from './hooks/useform';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
+import Villagers from './Villagers';
 
 function SmurfForm() {
-    const [smurf, setSmurf] = useState({name: '', age: '', height: '', id: Date.now()})
+    const [smurf, setSmurf] = useState([])
     
-    const handleChange = e => {
-    setSmurf({...smurf, [e.target.name]: e.target.value});
-    };
-    const handleSubmit = e => {
-        e.preventDefault();
-        Axios.post('http://localhost:3333/smurfs')
-        .then(response => setSmurf(response.name))
-        console.log(smurf.name);
-        console.log(smurf.age);
-        console.log(smurf.height);
-        console.log(smurf.id);
-    };
+   useEffect(() => {
+    axios.get('http://localhost:3333/smurfs')
+    .then(response => setSmurf(response.id))
+   },[]);
+
+   const [inputValues, handleChanges, handleSubmit] = useForm('SmurfForm', {name: '', age:'', height:'', id: Date.now()});
+   
     return(
         <div className="Smurf-Form">
             {console.log(smurf)}
-            <form onSubmit={e => handleSubmit(e)}>
+            <form onSubmit={handleSubmit}>
                 <label>
                     Name:
                     <input
-                    type="text"
                     name="name"
-                    onChange={e => handleChange(e)}/>
+                    type="text"
+                    value={inputValues.name}
+                    onChange={handleChanges}/>
+                    
                 </label>
                 <label>
                     Age:
                     <input
                     type="text"
                     name="age"
-                    onChange={e => handleChange(e)}/>
+                    value={inputValues.age}
+                    onChange={handleChanges}/>
                 </label>
                 <label>
                     Height:
                     <input
+                    value={inputValues.height}
                     type="text"
                     name="height"
-                    onChange={e => handleChange(e)}/>
+                    onChange={handleChanges}/>
                 </label>
-                <button>Submit</button>
-                {smurf.map(smurf => {
-                    return(
-                    <ul key={smurf.id}>
-                        <li>Name: {smurf.name}</li>
-                        <li>Age: {smurf.age}</li>
-                        <li>Height: {smurf.height}</li>
-                    </ul>
-                )})}
+                <button type="submit">Submit</button>
+                <Villagers smurf={smurf}/>
             </form>
         </div>
     );

@@ -1,13 +1,17 @@
 import React from 'react';
 
-const Villagers = props => {
+const Villagers = smurf => {
     return (
         <div className="Smurf-Villager">
-            <div>
-                <h1>{props.name}</h1>
-                <p>{props.age}</p>
-                <p>{props.height}</p>
-            </div>
+            {smurf.map(smurf => {
+                    return(
+                    <ul key={smurf.id}>
+                        <li>Name: {smurf.name}</li>
+                        <li>Age: {smurf.age}</li>
+                        <li>Height: {smurf.height}</li>
+                    </ul>
+                )})}
+            
         </div>
     );
 };
