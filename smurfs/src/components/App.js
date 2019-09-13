@@ -6,6 +6,7 @@ import "./App.css";
 import VillageContext from './context/village';
 import data from './apicall';
 import SmurfVillage from './SmurfVillage';
+import SmurfForm from './smurfform';
 function App(){
   const [smurfs] = useState(data);
   const [village, setVillage] = useState([]);
@@ -18,7 +19,8 @@ function App(){
     <SmurfContext.Provider value={{smurfs, addSmurf}}>
       <VillageContext.Provider value={{village}}>
         <div className="App">
-          <SmurfVillage />
+          {/* <SmurfVillage /> */}
+          <SmurfForm />
         </div>
       </VillageContext.Provider>
     </SmurfContext.Provider>
