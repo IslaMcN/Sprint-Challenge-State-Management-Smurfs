@@ -1,10 +1,10 @@
 //take data from api and render here
 //form input should be here as well <Form />
 import SmurfContext from './smurf';
-import React, { Component, useState } from "react";
+import React, {  useState } from "react";
 import "./App.css";
 import VillageContext from './village';
-
+import data from './apicall';
 function App(){
   const [smurfs] = useState(data);
   const [village, setVillage] = useState([]);
