@@ -11,16 +11,11 @@ function SmurfForm() {
     };
     const handleSubmit = e => {
         e.preventDefault();
-        Axios.post('http://localhost:3333/smurfs',smurf, {name: '', age: '', height:''})
-        .then(response => {
-            return(
-            response.smurfname,
-            response.smurfage,
-            response.smurfheight)
-        })
-        console.log(smurf.smurfname);
-        console.log(smurf.smurfage);
-        console.log(smurf.smurfheight);
+        Axios.post('http://localhost:3333/smurfs')
+        .then(response => setSmurf(response.name))
+        console.log(smurf.name);
+        console.log(smurf.age);
+        console.log(smurf.height);
         console.log(smurf.id);
     };
     return(
@@ -49,6 +44,14 @@ function SmurfForm() {
                     onChange={e => handleChange(e)}/>
                 </label>
                 <button>Submit</button>
+                {smurf.map(smurf => {
+                    return(
+                    <ul key={smurf.id}>
+                        <li>Name: {smurf.name}</li>
+                        <li>Age: {smurf.age}</li>
+                        <li>Height: {smurf.height}</li>
+                    </ul>
+                )})}
             </form>
         </div>
     );
