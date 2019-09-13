@@ -1,3 +1,6 @@
+//take data from api and render here
+//form input should be here as well <Form />
+
 import React, { Component } from "react";
 import "./App.css";
 class App extends Component {
