@@ -7,10 +7,10 @@ const SmurfVillage = () => {
     
     return(
         <div className = "Smurf-Village">
-            {/* {Village.map(smurf => {
+            {Village.map(smurf => {
                 return(
                 <Villagers key={smurf.id} {...smurf} />
-            )})} */}
+            )})}
         </div>
     );
 };

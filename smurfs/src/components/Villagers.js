@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import smurf from './apicall';
+import VillageContext from './context/village';
+import Villager from './Villager';
 
-const Villagers = props => {
+
+const Villagers = () => {
+   const {smurf} = useContext(VillageContext);
     return (
         <div className="Smurf-Villager">
-            {props.smurf.map(smurf => {
+            {smurf.map(smurfs => {
                     return(
-                    <ul key={smurf.id}>
-                        <li>Name: {smurf.name}</li>
-                        <li>Age: {smurf.age}</li>
-                        <li>Height: {smurf.height}</li>
-                    </ul>
+                    <Villager key={smurfs.id}
+                        name= {smurfs.name}
+                        age= {smurfs.age}
+                        height= {smurfs.height}
+                    />
                 )})}
             
         </div>
