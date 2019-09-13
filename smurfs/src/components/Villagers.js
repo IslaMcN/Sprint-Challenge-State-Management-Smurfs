@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Villagers = smurf => {
+const Villagers = props => {
     return (
         <div className="Smurf-Villager">
-            {smurf.map(smurf => {
+            {props.smurf.map(smurf => {
                     return(
                     <ul key={smurf.id}>
                         <li>Name: {smurf.name}</li>

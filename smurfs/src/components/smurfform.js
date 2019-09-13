@@ -8,7 +8,7 @@ function SmurfForm() {
     const [smurf, setSmurf] = useState([])
     
    useEffect(() => {
-    axios.get('http://localhost:3333/smurfs')
+    axios.post('http://localhost:3333/smurfs')
     .then(response => setSmurf(response.id))
    },[]);
 
@@ -23,7 +23,7 @@ function SmurfForm() {
                     <input
                     name="name"
                     type="text"
-                    value={inputValues.name}
+                    // value={inputValues.name}
                     onChange={handleChanges}/>
                     
                 </label>
@@ -32,20 +32,21 @@ function SmurfForm() {
                     <input
                     type="text"
                     name="age"
-                    value={inputValues.age}
+                    // value={inputValues.age}
                     onChange={handleChanges}/>
                 </label>
                 <label>
                     Height:
                     <input
-                    value={inputValues.height}
+                    // value={inputValues.height}
                     type="text"
                     name="height"
                     onChange={handleChanges}/>
                 </label>
                 <button type="submit">Submit</button>
-                <Villagers smurf={smurf}/>
+               
             </form>
+            <Villagers smurf={smurf}/>
         </div>
     );
 }
