@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import smurf from './apicall';
+import smurf from '../apicall';
 import VillageContext from './context/village';
 import Villager from './Villager';
 

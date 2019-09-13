@@ -4,11 +4,11 @@ import SmurfContext from './context/smurf';
 import React, {  useState } from "react";
 import "./App.css";
 import VillageContext from './context/village';
-import data from './apicall';
+import smurf from '../apicall';
 import SmurfVillage from './SmurfVillage';
 import SmurfForm from './smurfform';
 function App(){
-  const [smurfs] = useState(data);
+  const [smurfs] = useState(smurf);
   const [village, setVillage] = useState([]);
 
   const addSmurf = smurf => {
