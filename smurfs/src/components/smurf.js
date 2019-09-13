@@ -11,3 +11,5 @@ const BlueGuy = props => {
 }
 
 export default BlueGuy;
+
+//ShoppingCartItem

@@ -3,13 +3,16 @@ import VillageContext from './context/village';
 import BlueGuy from './smurf';
 
 const SmurfVillage = () => {
+    //In SHoppingCart there is const {cart} variable being created here. I went with village because it made more sense. I created this Context in the context/village file. 
     const {Village} = useContext(VillageContext);
-    
+    //In the ShoppingCart file there is getCartTotal function right about here. I did not add anything like that because I'm not trying to add the smurfs together.
     return(
         <div className = "Smurf-Village">
             {Village.map(smurf =>  (
-                <BlueGuy key={smurf.id} {...smurf} />
+                <BlueGuy key={smurf.id} {...smurf} /> //BlueGuy is supposed to be like Item
             ))}
+
+            //There is a child div right about here showing you the total and calling the getCartTotal function. I don't need a button or a total for my smurfs.
         </div>
     );
 };

@@ -17,3 +17,5 @@ const smurf = (props) => {
 }
 
 export default smurf;
+
+//data
