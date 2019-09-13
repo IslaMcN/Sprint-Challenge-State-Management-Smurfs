@@ -19,7 +19,7 @@ function App(){
     <SmurfContext.Provider value={{smurfs, addSmurf}}>
       <VillageContext.Provider value={{village}}>
         <div className="App">
-          {/* <SmurfVillage /> */}
+          <SmurfVillage />
           <SmurfForm />
         </div>
       </VillageContext.Provider>

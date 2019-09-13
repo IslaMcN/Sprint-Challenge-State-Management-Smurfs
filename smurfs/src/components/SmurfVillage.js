@@ -3,13 +3,14 @@ import VillageContext from './context/village';
 import Villagers from './Villagers';
 
 const SmurfVillage = () => {
-    const {Village} = useContext(VillageContext);
+    const Village = useContext(VillageContext);
     
     return(
         <div className = "Smurf-Village">
-            {Village.map(smurf => (
+            {/* {Village.map(smurf => {
+                return(
                 <Villagers key={smurf.id} {...smurf} />
-            ))}
+            )})} */}
         </div>
     );
 };
