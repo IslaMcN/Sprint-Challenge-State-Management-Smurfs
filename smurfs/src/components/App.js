@@ -1,19 +1,27 @@
 //take data from api and render here
 //form input should be here as well <Form />
-
-import React, { Component } from "react";
+import SmurfContext from './smurf';
+import React, { Component, useState } from "react";
 import "./App.css";
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <h1>SMURFS! 2.0 W/ Redux</h1>
-        <div>Welcome to your state management version of Smurfs!</div>
-        <div>Start inside of your `src/index.js` file!</div>
-        <div>Have fun!</div>
-      </div>
-    );
-  }
+import VillageContext from './village';
+
+function App(){
+  const [smurfs] = useState(data);
+  const [village, setVillage] = useState([]);
+
+  const addSmurf = smurf => {
+    setVillage([...village, smurf]);
+  };
+
+  return(
+    <SmurfContext.Provider value={{smurfs, addSmurf}}>
+      <VillageContext.Provider value={{village}}>
+        <div className="App">
+          
+        </div>
+      </VillageContext.Provider>
+    </SmurfContext.Provider>
+  )
 }
 
 export default App;
